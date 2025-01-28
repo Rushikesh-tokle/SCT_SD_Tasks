@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class SCT_SD_Task3 {
 
     public static boolean solveSudoku(int[][] grid) {
@@ -41,23 +39,27 @@ public class SCT_SD_Task3 {
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int[][] grid = new int[9][9];
+        // Predefined Sudoku puzzle (0 represents blank cells)
+        int[][] grid = {
+                {5, 3, 0, 0, 7, 0, 0, 0, 0},
+                {6, 0, 0, 1, 9, 5, 0, 0, 0},
+                {0, 9, 8, 0, 0, 0, 0, 6, 0},
+                {8, 0, 0, 0, 6, 0, 0, 0, 3},
+                {4, 0, 0, 8, 0, 3, 0, 0, 1},
+                {7, 0, 0, 0, 2, 0, 0, 0, 6},
+                {0, 6, 0, 0, 0, 0, 2, 8, 0},
+                {0, 0, 0, 4, 1, 9, 0, 0, 5},
+                {0, 0, 0, 0, 8, 0, 0, 7, 9}
+        };
 
-        System.out.println("Enter the Sudoku puzzle row by row (use 0 for blank cells):");
-        for (int row = 0; row < 9; row++) {
-            for (int col = 0; col < 9; col++) {
-                grid[row][col] = scanner.nextInt();
-            }
-        }
+        System.out.println("Original Sudoku puzzle:");
+        printGrid(grid);
 
         if (solveSudoku(grid)) {
-            System.out.println("Solved Sudoku:");
+            System.out.println("\nSolved Sudoku:");
             printGrid(grid);
         } else {
-            System.out.println("No solution exists.");
+            System.out.println("\nNo solution exists.");
         }
-
-        scanner.close();
     }
 }
